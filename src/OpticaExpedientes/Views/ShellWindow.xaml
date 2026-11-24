@@ -1,0 +1,53 @@
+<ui:FluentWindow
+  x:Class="OpticaExpedientes.Views.ShellWindow"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:pages="clr-namespace:OpticaExpedientes.Views.Pages"
+  xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+  Title="Expedientes"
+  Width="1200"
+  Height="720"
+  MinWidth="900"
+  MinHeight="560"
+  ExtendsContentIntoTitleBar="True"
+  WindowBackdropType="Mica"
+  WindowCornerPreference="Round"
+  WindowStartupLocation="CenterScreen">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+
+    <ui:TitleBar Title="Expedientes" Grid.Row="0" />
+
+    <ui:NavigationView
+      x:Name="RootNavigation"
+      Grid.Row="1"
+      IsBackButtonVisible="Collapsed"
+      IsPaneToggleVisible="True"
+      OpenPaneLength="240"
+      PaneDisplayMode="Left">
+      <ui:NavigationView.MenuItems>
+        <ui:NavigationViewItem
+          Content="Inicio"
+          Icon="{ui:SymbolIcon Home24}"
+          TargetPageType="{x:Type pages:HomePage}" />
+        <ui:NavigationViewItem
+          Content="Nuevo expediente"
+          Icon="{ui:SymbolIcon DocumentAdd24}"
+          TargetPageType="{x:Type pages:NuevoExpedientePage}" />
+        <ui:NavigationViewItem
+          Content="Pacientes"
+          Icon="{ui:SymbolIcon People24}"
+          TargetPageType="{x:Type pages:PacienteDetallePage}" />
+      </ui:NavigationView.MenuItems>
+      <ui:NavigationView.FooterMenuItems>
+        <ui:NavigationViewItem
+          Content="Configuración"
+          Icon="{ui:SymbolIcon Settings24}"
+          TargetPageType="{x:Type pages:ConfiguracionPage}" />
+      </ui:NavigationView.FooterMenuItems>
+    </ui:NavigationView>
+  </Grid>
+</ui:FluentWindow>

@@ -1,0 +1,56 @@
+<ui:FluentWindow
+  x:Class="OpticaExpedientes.Views.LoginWindow"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+  Title="Iniciar sesión"
+  Width="420"
+  Height="460"
+  ExtendsContentIntoTitleBar="True"
+  ResizeMode="CanMinimize"
+  WindowBackdropType="Mica"
+  WindowCornerPreference="Round"
+  WindowStartupLocation="CenterScreen">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+
+    <ui:TitleBar
+      Title="Expedientes"
+      Grid.Row="0"
+      ShowMaximize="False" />
+
+    <StackPanel
+      Grid.Row="1"
+      Margin="40,24"
+      VerticalAlignment="Center">
+      <ui:TextBlock
+        FontSize="26"
+        FontWeight="SemiBold"
+        Text="Iniciar sesión" />
+      <ui:TextBlock Margin="0,4,0,24" Text="Ingresa la contraseña para continuar." />
+
+      <TextBlock Margin="0,0,0,4" Text="Usuario" />
+      <TextBox IsReadOnly="True" Text="{Binding UserName, Mode=OneWay}" />
+
+      <TextBlock Margin="0,16,0,4" Text="Contraseña" />
+      <PasswordBox x:Name="PasswordInput" PasswordChanged="OnPasswordChanged" />
+
+      <TextBlock
+        Margin="0,12,0,0"
+        Foreground="IndianRed"
+        Text="{Binding ErrorMessage}"
+        TextWrapping="Wrap" />
+
+      <ui:Button
+        Margin="0,24,0,0"
+        HorizontalAlignment="Stretch"
+        Appearance="Primary"
+        Command="{Binding SignInCommand}"
+        Content="Iniciar sesión"
+        IsDefault="True" />
+    </StackPanel>
+  </Grid>
+</ui:FluentWindow>
